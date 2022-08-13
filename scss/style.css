@@ -1,0 +1,287 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1;
+  font-size: 24px;
+  color: #ffffff;
+  font-weight: 500;
+  font-family: Yuji Boku;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+.parallax {
+  min-height: 100vh;
+}
+
+.parallax__body {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.parallax__images {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.images-parallax__item {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+.images-parallax__item.images-parallax__item-staggers {
+  -webkit-animation: bush 0.5s 0.1s infinite alternate cubic-bezier(0.255, 0.455, 0.515, 0.455);
+          animation: bush 0.5s 0.1s infinite alternate cubic-bezier(0.255, 0.455, 0.515, 0.455);
+  transition: all 1s ease;
+  z-index: 2;
+  pointer-events: none;
+}
+.images-parallax__item.images-parallax__items {
+  max-width: 350px;
+  max-height: 236px;
+  margin: 0 auto;
+  margin-top: 295px;
+  overflow: hidden;
+  position: relative;
+}
+.images-parallax__item.none {
+  pointer-events: none;
+}
+
+.images-parallax__background,
+.images-parallax__shadow,
+.images-parallax__fog,
+.images-parallax__bush-two,
+.images-parallax__bush-one {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+}
+
+.images-parallax__background {
+  background: url(/img/Scrimer/background.jpg) top/cover no-repeat;
+  top: 0;
+  height: 101%;
+  width: 101%;
+}
+
+.images-parallax__fog {
+  background: url(/img/Scrimer/smoke.png) bottom/100% no-repeat;
+  width: 110%;
+  height: 110%;
+  left: -20px;
+  z-index: 3;
+  -webkit-animation: swing 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+          animation: swing 2s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  transition: all 2s ease;
+}
+.images-parallax__fog.fog-active {
+  opacity: 0;
+}
+
+.images-parallax__bush-one {
+  background: url(/img/Scrimer/bush1.png) bottom left/60% no-repeat;
+  left: -10px;
+  transition: all 2s ease;
+}
+.images-parallax__bush-one.bush-one-active {
+  transform: translate(-280px, 0);
+  transition: all 2s ease;
+}
+
+.images-parallax__bush-two {
+  background: url(/img/Scrimer/bush2.png) bottom right/60% no-repeat;
+  left: 10px;
+  transition: all 2s ease;
+}
+.images-parallax__bush-two.bush-two-active {
+  transform: translate(290px, 0);
+  transition: all 2s ease;
+}
+
+.images-parallax-container {
+  margin-top: 176px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 1s ease;
+  position: relative;
+}
+.images-parallax-container.container-active {
+  transform: translate(0, -176px);
+  transition: all 1s ease;
+}
+
+.images-parallax-face {
+  position: relative;
+}
+
+.images-parallax-button {
+  width: 280px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.8s ease 0s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+.images-parallax-button:hover {
+  transition: all 0.8s ease 0.2s;
+  box-shadow: 0 0 40px rgba(255, 0, 0, 0.6);
+}
+.images-parallax-button:hover .images-parallax-button__waves {
+  top: -50px;
+}
+
+.images-parallax-button__text {
+  color: #ffffff;
+  letter-spacing: 1px;
+  position: relative;
+  z-index: 10;
+}
+
+.images-parallax-button__waves {
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background-color: rgb(138, 0, 0);
+  box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+  top: 0;
+  left: 0;
+  transition: all 0.8s ease 0s;
+}
+.images-parallax-button__waves:before {
+  background-color: rgb(105, 0, 0);
+  border-radius: 48%;
+  -webkit-animation: waves 5s infinite linear;
+          animation: waves 5s infinite linear;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+}
+.images-parallax-button__waves:after {
+  background-color: rgb(0, 0, 0);
+  border-radius: 44%;
+  -webkit-animation: waves 10s infinite linear;
+          animation: waves 10s infinite linear;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 250%;
+  height: 250%;
+  transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+}
+
+/* Стили главной страницы конец*/
+/* CSS анимации */
+@-webkit-keyframes bush {
+  0%, 30%, 60%, 90% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 40%, 70%, 100% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 50%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+}
+@keyframes bush {
+  0%, 30%, 60%, 90% {
+    transform: translate3d(0, 0, 0);
+  }
+  10%, 40%, 70%, 100% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 50%, 80% {
+    transform: translate3d(1px, 0, 0);
+  }
+}
+@-webkit-keyframes swing {
+  0% {
+    transform: rotateZ(2deg);
+  }
+  100% {
+    transform: rotateZ(-2deg);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: rotateZ(2deg);
+  }
+  100% {
+    transform: rotateZ(-2deg);
+  }
+}
+@-webkit-keyframes waves {
+  0% {
+    transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translate3d(-50%, -96%, 0) rotate(360deg) scale(1);
+  }
+}
+@keyframes waves {
+  0% {
+    transform: translate3d(-50%, -96%, 0) rotate(0deg) scale(1);
+  }
+  100% {
+    transform: translate3d(-50%, -96%, 0) rotate(360deg) scale(1);
+  }
+}
+/* CSS анимации *//*# sourceMappingURL=style.css.map */
